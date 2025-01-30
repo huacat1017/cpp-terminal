@@ -14,6 +14,8 @@
 #include <istream>
 #include <ostream>
 
+#include <string>
+
 namespace Term
 {
 
@@ -31,6 +33,10 @@ public:
   {
     m_stream >> t;
     return *this;
+  }
+  void getline(std::string &str){
+    std::getline(m_stream, str);
+    str.erase(str.find_last_not_of("\r")+1);
   }
 
 private:
